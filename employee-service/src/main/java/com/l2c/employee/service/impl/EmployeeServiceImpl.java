@@ -2,6 +2,7 @@ package com.l2c.employee.service.impl;
 
 import com.l2c.employee.dto.EmployeeDto;
 import com.l2c.employee.entity.Employee;
+import com.l2c.employee.exception.ResourceNotFoundException;
 import com.l2c.employee.mapper.AutoEmployeeMapper;
 import com.l2c.employee.mapper.EmployeeMapper;
 import com.l2c.employee.repository.EmployeeRepository;
@@ -34,9 +35,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     // use ModelMapper for converting from entity to DTO
     @Override
     public EmployeeDto getEmployeeById(Long employeeId) {
-        Employee employee = employeeRepository.findById(employeeId).get();
+        Employee existingEmployee = employeeRepository.findById(employeeId).orElseThrow(
+                () -> new ResourceNotFoundException("Employee", "id", employeeId)
+        );
+
         // convert entity to DTO
-       return modelMapper.map(employee, EmployeeDto.class);
+       return modelMapper.map(existingEmployee, EmployeeDto.class);
 
     }
 

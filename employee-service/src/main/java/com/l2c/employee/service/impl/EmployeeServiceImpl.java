@@ -10,9 +10,8 @@ import com.l2c.employee.repository.EmployeeRepository;
 import com.l2c.employee.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
 @AllArgsConstructor
@@ -20,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
     private ModelMapper modelMapper;
     private AutoEmployeeMapper employeeMapper;
-    private RestTemplate restTemplate;
+    private WebClient webClient;
 
     // use MapStruct for converting DTO to entity and entity to DTO
     @Override
@@ -39,9 +38,11 @@ public class EmployeeServiceImpl implements EmployeeService {
                 () -> new ResourceNotFoundException("Employee", "id", employeeId)
         );
 
-        ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://localhost:8080/api/departments/" +
-                employee.getDepartmentCode(), DepartmentDto.class);
-        DepartmentDto departmentDto = responseEntity.getBody();
+        DepartmentDto departmentDto = webClient.get()
+                .uri("http://localhost:8080/api/departments/" + employee.getDepartmentCode())
+                .retrieve()
+                .bodyToMono(DepartmentDto.class)
+                .block();
 
         // convert entity to DTO
         EmployeeDto employeeDto = modelMapper.map(employee, EmployeeDto.class);
@@ -52,5 +53,4 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return apiResponseDto;
     }
-
 }

@@ -1,0 +1,47 @@
+[33mcommit 29eec791aaa1d0b4ae495d9e8c92d23fded5a22e[m[33m ([m[1;36mHEAD -> [m[1;32mmicroservices-communication[m[33m, [m[1;31morigin/microservices-communication[m[33m)[m
+Author: Cristian Manolache <110411359+cristian-manolache@users.noreply.github.com>
+Date:   Wed May 10 13:24:40 2023 +0300
+
+    add communication between the microservices Employee and Department using WebClient
+
+[33mcommit 12198a573fc6f69598296653b5bb776028c7560c[m
+Author: Cristian Manolache <110411359+cristian-manolache@users.noreply.github.com>
+Date:   Wed May 10 12:05:27 2023 +0300
+
+    add communication between the microservices Employee and Department using RestTemplate
+
+[33mcommit e2b72a053879e147cb7533555bac6ec6f207a56a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 9b72b8d 56bb368
+Author: Cristi Manolache <49694359+cristimanolache28@users.noreply.github.com>
+Date:   Tue May 9 15:40:13 2023 +0300
+
+    Merge pull request #2 from cristimanolache28/handling-exception
+    
+    small changes
+
+[33mcommit 56bb36811e5b5c57c11d8c3ac4a01152b0df892f[m[33m ([m[1;31morigin/handling-exception[m[33m)[m
+Author: Cristian Manolache <cristianmanolache0@gmail.com>
+Date:   Tue May 9 15:01:03 2023 +0300
+
+    small changes
+
+[33mcommit 9b72b8dfb5d928f3c8871f856b2044c63f4bc1d4[m
+Merge: a7b6ff8 03a3e65
+Author: Cristi Manolache <49694359+cristimanolache28@users.noreply.github.com>
+Date:   Tue May 9 13:59:56 2023 +0300
+
+    Merge pull request #1 from cristimanolache28/handling-exception
+    
+    add exception handler in both microservices
+
+[33mcommit 03a3e6510e58695db80543dbb8cd9d38bb91f5b7[m
+Author: Cristian Manolache <cristianmanolache0@gmail.com>
+Date:   Tue May 9 13:58:45 2023 +0300
+
+    add exception handler in both microservices
+
+[33mcommit a7b6ff853393017f6c1db82c584bae02de32d63b[m
+Author: Cristian Manolache <cristianmanolache0@gmail.com>
+Date:   Tue May 9 11:58:23 2023 +0300
+
+    add microservices, create structure (controller, service and repository) and implementation for them

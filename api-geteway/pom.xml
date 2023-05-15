@@ -13,13 +13,14 @@
 	<groupId>com.l2c</groupId>
 	<artifactId>api-geteway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-geteway</name>
+	<name>api-gateway</name>
 	<description>Demo project for Spring Boot api-gateway</description>
 
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.7</spring-cloud.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

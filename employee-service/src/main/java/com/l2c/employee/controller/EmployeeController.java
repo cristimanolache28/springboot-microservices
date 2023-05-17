@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/employees")
 @AllArgsConstructor
 public class EmployeeController {
-
     public EmployeeService employeeService;
 
     @PostMapping

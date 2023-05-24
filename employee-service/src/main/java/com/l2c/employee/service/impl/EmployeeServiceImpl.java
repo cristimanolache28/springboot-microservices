@@ -26,18 +26,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     private ModelMapper modelMapper;
     private AutoEmployeeMapper employeeMapper;
 
-    //private RestTemplate restTemplate;
-
     private APIClient apiClient;
     private WebClient webClient;
 
     @Override
     public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
-        // convert DTO to entity
         Employee employee = employeeMapper.mapToEmployee(employeeDto);
         Employee savedEmployee = employeeRepository.save(employee);
-        // convert entity to DTO
-        return employeeMapper.mapToEmployeeDto(savedEmployee);
+        EmployeeDto savedEmployeeDto = employeeMapper.mapToEmployeeDto(savedEmployee);
+        return savedEmployeeDto;
     }
 
     @Retry(name = "${spring.application.name}", fallbackMethod = "getDefaultDepartment")
@@ -54,7 +51,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .bodyToMono(DepartmentDto.class)
                 .block();
 
-        // convert entity to DTO
         EmployeeDto employeeDto = modelMapper.map(employee, EmployeeDto.class);
 
         APIResponseDto apiResponseDto = new APIResponseDto();
@@ -75,7 +71,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         departmentDto.setDepartmentCode("RD001");
         departmentDto.setDepartmentDescription("Research for Development Department");
 
-        // convert entity to DTO
         EmployeeDto employeeDto = modelMapper.map(employee, EmployeeDto.class);
 
         APIResponseDto apiResponseDto = new APIResponseDto();

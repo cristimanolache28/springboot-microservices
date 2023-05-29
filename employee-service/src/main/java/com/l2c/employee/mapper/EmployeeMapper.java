@@ -14,7 +14,8 @@ public class EmployeeMapper implements AutoEmployeeMapper{
                 employee.getFirstName(),
                 employee.getLastName(),
                 employee.getEmail(),
-                employee.getDepartmentCode()
+                employee.getDepartmentCode(),
+                employee.getOrganizationCode()
         );
     }
 
@@ -25,7 +26,8 @@ public class EmployeeMapper implements AutoEmployeeMapper{
                 employeeDto.getFirstName(),
                 employeeDto.getLastName(),
                 employeeDto.getEmail(),
-                employeeDto.getDepartmentCode()
+                employeeDto.getDepartmentCode(),
+                employeeDto.getOrganizationCode()
         );
     }
 }

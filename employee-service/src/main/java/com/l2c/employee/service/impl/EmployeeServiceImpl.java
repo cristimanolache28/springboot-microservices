@@ -3,6 +3,7 @@ package com.l2c.employee.service.impl;
 import com.l2c.employee.dto.APIResponseDto;
 import com.l2c.employee.dto.DepartmentDto;
 import com.l2c.employee.dto.EmployeeDto;
+import com.l2c.employee.dto.OrganizationDto;
 import com.l2c.employee.entity.Employee;
 import com.l2c.employee.exception.ResourceNotFoundException;
 import com.l2c.employee.mapper.AutoEmployeeMapper;
@@ -51,12 +52,18 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .bodyToMono(DepartmentDto.class)
                 .block();
 
+        OrganizationDto organizationDto = webClient.get()
+                .uri("http://localhost:8083/api/organizations/" + employee.getOrganizationCode())
+                .retrieve()
+                .bodyToMono(OrganizationDto.class)
+                .block();
+
         EmployeeDto employeeDto = modelMapper.map(employee, EmployeeDto.class);
 
         APIResponseDto apiResponseDto = new APIResponseDto();
         apiResponseDto.setDepartment(departmentDto);
         apiResponseDto.setEmployee(employeeDto);
-
+        apiResponseDto.setOrganization(organizationDto);
         return apiResponseDto;
     }
 

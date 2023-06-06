@@ -1,0 +1,33 @@
+----------------------------Employee DB----------------------------
+INSERT INTO employees (department_code, email, first_name, last_name, organization_code)
+VALUES ("BE001", "jamess@email.com", "James", "Carr", "IBM111");
+
+INSERT INTO employees (department_code, email, first_name, last_name, organization_code)
+VALUES ("MAG001", "john@email.com", "John", "Cena", "MALL111");
+
+INSERT INTO employees (department_code, email, first_name, last_name, organization_code)
+VALUES ("FE001", "kim@email.com", "Kim", "Kimberly", "ENDV111");
+
+
+----------------------------Department DB----------------------------
+INSERT INTO departments (department_code, department_description, department_name)
+VALUES ("BE001", "", "Backend Developer");
+
+INSERT INTO departments (department_code, department_description, department_name)
+VALUES ("FE001", "", "Frontend Developer");
+
+INSERT INTO departments (department_code, department_description, department_name)
+VALUES ("MAG001", "", "Manager");
+
+
+----------------------------Organization DB----------------------------
+INSERT INTO organizations (organization_code, organization_description, organization_name)
+VALUES ("ENDV111", "It is a software company.", "Endava");
+
+
+INSERT INTO organizations (organization_code, organization_description, organization_name)
+VALUES ("IBM111", "It is a software company.", "IBM");
+
+
+INSERT INTO organizations (organization_code, organization_description, organization_name)
+VALUES ("MALL111", "It is a mall with many popular shops.", "Coresi Mall");
